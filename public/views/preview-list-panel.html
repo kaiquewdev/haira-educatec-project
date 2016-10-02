@@ -1,0 +1,53 @@
+<div class="panel panel-default" style="margin-top:4em;" ng-controller="reviewList">
+  <div class="panel-heading">
+    {{'SECOND_TITLE' | translate}}
+    <button style="margin-top:-.4em;" class="btn btn-sm btn-default pull-right" ng-click="changeLang()">{{'CHANGE_TO' | translate}}</button>
+  </div>
+  <div class="panel-body">
+    <label for="find-stash">{{'SLUG_TITLE' | translate}}</label>
+    <div class="input-group col-lg-12">
+      <input type="text" class="form-control" ng-model="search.slug" placeholder="{{'SLUG_PLACEHOLDER' | translate}}">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="grabReviewContent(search.slug)">{{'GRAB' | translate}}</button>
+      </div>
+    </div>
+
+    <label ng-show="reviews.length" for="find-stash" style="margin-top:1em;">{{'SUB_SECOND_TITLE' | translate}}</label>
+    <div ng-show="reviews.length" class="input-group col-lg-12">
+      <input type="text" class="form-control" ng-model="search.keyword" placeholder="{{'KEYWORD' | translate}}">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="search.keyword='';">{{'RESET' | translate}}</button>
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>{{'PARAGRAPHS' | translate}}</th>
+        <th>{{'CHARACTERS' | translate}}</th>
+        <th>{{'SCORE' | translate}}</th>
+        <th>{{'COMPARATIVE' | translate}}</th>
+        <th>{{'POSITIVE_TOKENS' | translate}}</th>
+        <th>{{'NEGATIVE_TOKENS' | translate}}</th>
+        <th>{{'REVIEW' | translate}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="review in reviews | filter:{paragraphs:search.keyword} | orderBy:'-sentiment.score' track by $id(review)">
+        <th scope="row">{{$index + 1}}</th>
+        <td>{{review.paragraphs.slice(0, 12) + '...'}}</td>
+        <td>{{review.paragraphs.length}}</td>
+        <td>{{review.sentiment.score}}</td>
+        <td>{{review.sentiment.comparative}}</td>
+        <td>{{review.sentiment.positive.length}}</td>
+        <td>{{review.sentiment.negative.length}}</td>
+        <td>
+          <a href="{{review.target}}" target="_blank" class="btn btn-default">
+            {{'REVIEW' | translate}}
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

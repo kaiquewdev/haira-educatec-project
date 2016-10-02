@@ -1,0 +1,12 @@
+<div class="row" style="margin-top:5em;" ng-controller="review">
+  <div class="col-sm-6 col-md-4" ng-repeat="review in reviews.reverse().slice(0,3) | orderBy:'-sentiment.score' track by $index">
+    <div class="thumbnail">
+      <img ng-src="{{review.photo || '//placehold.it/240x400'}}" alt="Place image holding up">
+      <div class="caption">
+        <h3>{{review.paragraphs.slice(0, 15) + '...'}}</h3>
+        <p>{{review.paragraphs.slice(0, review.paragraphs.indexOf('.')) + (review.paragraphs.length >= review.paragraphs.indexOf('.') ? '...':'')}}</p>
+        <p><a href="{{review.target}}" target="_blank" class="btn btn-primary" role="button">{{'FULL_REVIEW' | translate}}</a></p>
+      </div>
+    </div>
+  </div>
+</div>

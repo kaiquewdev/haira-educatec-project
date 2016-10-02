@@ -43,10 +43,10 @@ angular
     'unique.filter',
     'login.controller',
     'menu.controller',
-    'profile.controller',
-    'review.controller',
-    'reviewList.controller',
-    'stash.controller',
+    // 'profile.controller',
+    // 'review.controller',
+    // 'reviewList.controller',
+    // 'stash.controller',
     'directives'
   ])
   .run(function ($log, $feathers) {
