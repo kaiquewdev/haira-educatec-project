@@ -1,17 +1,22 @@
-<div class="panel panel-default" style="margin-top:4em;" ng-controller="catalog">
-  <div class="panel-heading">
-      {{'LOGIN_TITLE' | translate}}
-      <button style="margin-top:-.4em;" class="btn btn-sm btn-default pull-right" ng-click="changeLang()">{{'CHANGE_TO' | translate}}</button>
+<div ng-controller="catalog">
+  <div class="panel panel-default" style="margin-top:4em;" ng-hide="userLogged">
+    <div class="panel-heading">
+        {{'LOGIN_TITLE' | translate}}
+        <button style="margin-top:-.4em;" class="btn btn-sm btn-default pull-right" ng-click="changeLang()">{{'CHANGE_TO' | translate}}</button>
+    </div>
+    <div class="panel-body">
+      <label for="username">{{'EMAIL' | translate}}</label>
+      <input type="text" class="form-control" placeholder="{{'EMAIL_PLACEHOLDER' | translate}}" ng-model="user.email" />
+      <label for="password" style="margin-top:1em;">{{'PASSWORD' | translate}}</label>
+      <input type="password" class="form-control" placeholder="{{'PASSWORD_PLACEHOLDER' | translate}}" ng-model="user.password" />
+      <button
+        type="button"
+        class="btn btn-lg btn-primary pull-right col-xs-12"
+        style="margin-top:1em;"
+        ng-click="signIn(user)">{{'LOGIN_TITLE' | translate}}</button>
+    </div>
   </div>
-  <div class="panel-body" ng-show="userLogged">
-    <label for="username">{{'EMAIL' | translate}}</label>
-    <input type="text" class="form-control" placeholder="{{'EMAIL_PLACEHOLDER' | translate}}" ng-model="user.email" />
-    <label for="password" style="margin-top:1em;">{{'PASSWORD' | translate}}</label>
-    <input type="password" class="form-control" placeholder="{{'PASSWORD_PLACEHOLDER' | translate}}" ng-model="user.password" />
-    <button
-      type="button"
-      class="btn btn-lg btn-primary pull-right col-xs-12"
-      style="margin-top:1em;"
-      ng-click="signIn(user)">{{'LOGIN_TITLE' | translate}}</button>
+  <div class="well text-center" ng-show="userLogged" style="margin-top:4em;">
+    Here comes the catalog of content.
   </div>
 </div>

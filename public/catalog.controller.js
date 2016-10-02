@@ -9,7 +9,7 @@ angular
     usersService.timeout = 30000;
 
     $scope.user = { email: '', password: '' };
-    $scope.userLogged = true;
+    $scope.userLogged = false;
 
     $scope.signIn = function (user) {
       user = user || {};
@@ -19,10 +19,12 @@ angular
         password: user.password,
       }).then(function (result) {
         console.log('Authenticate', result);
-        alert('Success!');
+        $scope.userLogged = true;
+        $scope.$digest();
       }).catch(function (error) {
         console.log('Error authenticating!', error);
-        alert('Error');
+        $scope.userLogged = false;
+        $scope.$digest();
       });
     };
 
