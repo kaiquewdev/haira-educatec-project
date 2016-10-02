@@ -12,4 +12,4 @@ services:
   # index:
     # image: elasticsearch
   database:
-    # image: mongo
+    image: mongo
