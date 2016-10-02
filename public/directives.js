@@ -3,8 +3,8 @@ angular
   .directive('mainMenu', function () {
     return {templateUrl: './views/main-menu.html'};
   })
-  .directive('loginPanel', function () {
-    return {templateUrl: './views/login-panel.html'};
+  .directive('catalogPanel', function () {
+    return {templateUrl: './views/catalog-panel.html'};
   });
   // .directive('profilePanel', function () {
   //   return {templateUrl: './views/profile-panel.html'};
