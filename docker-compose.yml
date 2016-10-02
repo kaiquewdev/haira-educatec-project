@@ -1,0 +1,15 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+      - "3030:3030"
+    volumes:
+      - .:/code
+    depends_on:
+      # - index
+       - database
+  # index:
+    # image: elasticsearch
+  database:
+    # image: mongo

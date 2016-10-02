@@ -1,0 +1,12 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://database:27017/hairaEducatecProject",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "2TyqtPgulXYgzV3MbE+1OmDYhP9/E38iM1Vib6pzgF1cTk9YyoEcq+uEOXSoIIAe2te5QHN35+ZjSmh/NW9yKw=="
+    },
+    "local": {}
+  }
+}
