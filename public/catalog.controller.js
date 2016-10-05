@@ -42,6 +42,7 @@ angular
       }).then(function (result) {
         console.log('Authenticate', result);
         $scope.userLogged = true;
+        $scope.user.card = window.score.scorecard();
         publicationsService.find({}).then(function (res) {
           console.log(res);
           if (res.total === 0) {

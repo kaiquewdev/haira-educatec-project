@@ -112,6 +112,8 @@ angular
       PUBLICATIONS_FIELD_DESCRIPTION: 'Description',
       PUBLICATIONS_FIELD_PREVIEW: 'Preview',
       PUBLICATIONS_FIELD_VIEW: 'View',
+      LOGGED_USER_LABEL: 'Logged user:',
+      APPREHENTICE_QUOTE: 'Apprehentice',
     });
     $translateProvider.translations('ptBr', {
       SIGN_IN: 'Acessar',
@@ -165,7 +167,9 @@ angular
       PUBLICATIONS_FIELD_TITLE: 'Título',
       PUBLICATIONS_FIELD_DESCRIPTION: 'Descrição',
       PUBLICATIONS_FIELD_PREVIEW: 'Pré-visualização',
-      PUBLICATIONS_FIELD_VIEW: 'Visualização'
+      PUBLICATIONS_FIELD_VIEW: 'Visualização',
+      LOGGED_USER_LABEL: 'Usuário:',
+      APPREHENTICE_QUOTE: 'Aprendiz',
     });
     $translateProvider.preferredLanguage(currentLanguage);
     $translateProvider.useSanitizeValueStrategy('escape');
