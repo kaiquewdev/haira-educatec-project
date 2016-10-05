@@ -38,6 +38,7 @@ var score = window.score = new Score({
 angular
   .module('hairaEducatec', [
     'ngFeathers',
+    'ngSanitize',
     'pascalprecht.translate',
     'hasItem.factory',
     'unique.filter',

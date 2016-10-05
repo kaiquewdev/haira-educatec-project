@@ -23,6 +23,12 @@ angular
     $scope.publications = [];
 
     $scope.currentFragmentPreview = '';
+    $scope.getCurrentFragmentPreview = function () {
+      return $scope.currentFragmentPreview;
+    };
+    $scope.setCurrentFragmentPreview = function (fragment) {
+      $scope.currentFragmentPreview = $sce.trustAs('resourceUrl', fragment);
+    };
 
     publicationsService.on('created', function (res) {
       $scope.publications.push(res);
@@ -43,9 +49,9 @@ angular
             publicationsService.create({
               title: 'Sample',
               video: {
-                watch_id: 'rLSmU6deuPQ',
-                url: 'https://www.youtube.com/watch?v=rLSmU6deuPQ',
-                fragment: 'https://www.youtube.com/embed/rLSmU6deuPQ',
+                watch_url: 'https://www.youtube.com/watch?v=rLSmU6deuPQ',
+                embed_url: 'https://www.youtube.com/embed/rLSmU6deuPQ',
+                embed_fragment: '<iframe class="embed-responsive-item" width="560" height="315" ng-src="https://www.youtube.com/embed/rLSmU6deuPQ" frameborder="0" allowfullscreen></iframe>',
               },
               description: 'Short history of education on Brazil',
               created_at: Date.now(),

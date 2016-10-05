@@ -4,12 +4,9 @@
     <button style="margin-top:-.4em;" class="btn btn-sm btn-default pull-right" ng-click="changeLang()">{{'CHANGE_TO' | translate}}</button>
   </div>
   <div class="panel-body">
-    <!-- <p class="well text-center">
+    <p class="well text-center">
       {{'PUBLICATIONS_DESCRIPTION' | translate}}
-    </p> -->
-    <div class="embed-responsive embed-responsive-16y9" ng-show="currentFragmentPreview">
-      <iframe class="embed-responsive-item" width="560" height="315" src="{{publication.video.fragment}}" frameborder="0" allowfullscreen></iframe>
-    </div>
+    </p>
   </div>
   <table class="table">
     <thead>
@@ -25,8 +22,33 @@
         <th scope="row">{{$index+1}}</th>
         <th scope="row"><a href="{{publication.video.url}}" target="_blank">{{publication.title}}</a></th>
         <th scope="row">{{publication.description}}</th>
-        <th scope="row"><button type="button" class="btn btn-success btn" ng-click="currentFragmentPreview=publication.video.fragment">{{'PUBLICATIONS_FIELD_VIEW' | translate}}</button></th>
+        <th scope="row"><button type="button" class="btn btn-success btn" ng-click="setCurrentFragmentPreview(publication.video.embed_url)" data-toggle="modal" data-target="#contentPreview">{{'PUBLICATIONS_FIELD_VIEW' | translate}}</button></th>
       </tr>
     </tbody>
   </table>
+</div>
+
+<div id="contentPreview" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{'PUBLICATIONS' | translate}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe
+            class="embed-responsive-item"
+            width="560"
+            height="315"
+            ng-src="{{getCurrentFragmentPreview()}}"
+            frameborder="0"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{'CLOSE' | translate}}</button>
+      </div>
+    </div>
+  </div>
 </div>
