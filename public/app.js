@@ -43,10 +43,6 @@ angular
     'unique.filter',
     'menu.controller',
     'catalog.controller',
-    // 'profile.controller',
-    // 'review.controller',
-    // 'reviewList.controller',
-    // 'stash.controller',
     'directives'
   ])
   .run(function ($log, $feathers) {
@@ -107,6 +103,14 @@ angular
       PASSWORD: 'Password',
       PASSWORD_PLACEHOLDER: 'Fill with your password...',
       CLOSE: 'Close',
+      PUBLICATIONS: 'Publications',
+      PUBLICATIONS_SUB_TITLE: 'Find publications',
+      PUBLICATIONS_PLACEHOLDER: 'Fill with a keyword...',
+      PUBLICATIONS_DESCRIPTION: 'Catalog of publications',
+      PUBLICATIONS_FIELD_TITLE: 'Title',
+      PUBLICATIONS_FIELD_DESCRIPTION: 'Description',
+      PUBLICATIONS_FIELD_PREVIEW: 'Preview',
+      PUBLICATIONS_FIELD_VIEW: 'View',
     });
     $translateProvider.translations('ptBr', {
       SIGN_IN: 'Acessar',
@@ -153,6 +157,14 @@ angular
       PASSWORD: 'Senha',
       PASSWORD_PLACEHOLDER: 'Utilize a sua senha...',
       CLOSE: 'Fechar',
+      PUBLICATIONS: 'Publicações',
+      PUBLICATIONS_SUB_TITLE: 'Procurar publicações',
+      PUBLICATIONS_PLACEHOLDER: 'Utilize uma palavra-chave...',
+      PUBLICATIONS_DESCRIPTION: 'Catálogo de públicações',
+      PUBLICATIONS_FIELD_TITLE: 'Título',
+      PUBLICATIONS_FIELD_DESCRIPTION: 'Descrição',
+      PUBLICATIONS_FIELD_PREVIEW: 'Pré-visualização',
+      PUBLICATIONS_FIELD_VIEW: 'Visualização'
     });
     $translateProvider.preferredLanguage(currentLanguage);
     $translateProvider.useSanitizeValueStrategy('escape');

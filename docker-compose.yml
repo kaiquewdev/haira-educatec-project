@@ -8,8 +8,11 @@ services:
       - .:/code
     depends_on:
       # - index
-       - database
+      # - queue
+      - database
   # index:
     # image: elasticsearch
+  # queue:
+    # image: rabbitmq
   database:
     image: mongo
