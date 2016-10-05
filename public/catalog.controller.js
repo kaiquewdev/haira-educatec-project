@@ -3,7 +3,6 @@ angular
   .run(function ($log, $feathers) {
     $log.debug('review controller running');
     var usersService = $feathers.service('users');
-    var publicationsService = $feathers.service('catalogs');
     usersService.create({
       email: 'sample@state.com',
       password: 'sample'
@@ -47,7 +46,7 @@ angular
           console.log(res);
           if (res.total === 0) {
             publicationsService.create({
-              title: 'Sample',
+              title: 'Education on Brazil',
               video: {
                 watch_url: 'https://www.youtube.com/watch?v=rLSmU6deuPQ',
                 embed_url: 'https://www.youtube.com/embed/rLSmU6deuPQ',
