@@ -1,6 +1,6 @@
 {
   "host": "localhost",
-  "port": 3030,
+  "port": 8000,
   "mongodb": "mongodb://database:27017/hairaEducatecProject",
   "public": "../public/",
   "nedb": "../data/",
