@@ -54,10 +54,10 @@ angular
     $feathersProvider,
     $translateProvider
   ) {
-    $feathersProvider.setEndpoint('http://localhost:3030/');
-    $feathersProvider.setSocketOpts({
-      path: '/socket.io/'
-    });
+    $feathersProvider.setEndpoint('http://localhost:8080/');
+    // $feathersProvider.setSocketOpts({
+    //   path: '/socket.io/'
+    // });
     $feathersProvider.useSocket(true);
     $translateProvider.translations('en', {
       SIGN_IN: 'Sign in',
