@@ -20,7 +20,7 @@ app.configure(configuration(path.join(__dirname, '..')));
 
 app.use(compress())
   .options('*', cors())
-  .use(cors())
+  .use(cors({ origin: true }))
   .use(favicon( path.join(app.get('public'), 'favicon.ico') ))
   .use('/', serveStatic( app.get('public') ))
   .use(bodyParser.json())
