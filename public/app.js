@@ -55,9 +55,9 @@ angular
     $translateProvider
   ) {
     $feathersProvider.setEndpoint('http://localhost:3030/');
-    // $feathersProvider.setSocketOpts({
-    //   path: '/ws/'
-    // });
+    $feathersProvider.setSocketOpts({
+      path: '/socket.io/'
+    });
     $feathersProvider.useSocket(true);
     $translateProvider.translations('en', {
       SIGN_IN: 'Sign in',
