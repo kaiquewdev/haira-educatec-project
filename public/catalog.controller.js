@@ -3,6 +3,7 @@ angular
   .run(function ($log, $feathers) {
     $log.debug('review controller running');
     var usersService = $feathers.service('users');
+    usersService.timeout = 120000;
     usersService.create({
       email: 'sample@state.com',
       password: 'sample'
