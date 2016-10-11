@@ -1,5 +1,8 @@
 angular
   .module('directives', [])
+  .directive('brand', function () {
+    return {templateUrl: './views/brand.html'};
+  })
   .directive('mainMenu', function () {
     return {templateUrl: './views/main-menu.html'};
   })
