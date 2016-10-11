@@ -1,10 +1,6 @@
-<div style="margin-top:1em;">
-  {{'LOGGED_USER_LABEL' | translate}} {{user.email}} - {{user.card.quote | translate}} ({{user.card.score}})
-</div>
-
 <div class="panel panel-default" style="margin-top:1em;">
   <div class="panel-heading">
-    {{'PUBLICATIONS' | translate}}
+    {{'PUBLICATIONS' | translate}} ({{'LOGGED_USER_LABEL' | translate}} {{user.email}} - {{'POINTS' | translate}} {{user.card.score}})
     <button style="margin-top:-.4em;" class="btn btn-sm btn-default pull-right" ng-click="changeLang()">{{'CHANGE_TO' | translate}}</button>
   </div>
   <div class="panel-body">

@@ -1,4 +1,4 @@
-var currentLanguage = window.currentLanguage = 'en';
+var currentLanguage = window.currentLanguage = 'ptBr';
 var score = window.score = new Score({
   persistant: true,
   callback: function () {},
@@ -178,6 +178,12 @@ angular
       PUBLICATIONS_FIELD_VIEW: 'View',
       LOGGED_USER_LABEL: 'Logged user:',
       APPREHENTICE_QUOTE: 'Apprehentice',
+      POINTS: 'Points:',
+      HOME: 'HOME',
+      CONSULTING: 'CONSULTING',
+      PRODUCTS: 'PRODUCTS',
+      PARTNERS: 'PARTNERS',
+      CONTACT: 'CONTACT',
     });
     $translateProvider.translations('ptBr', {
       SIGN_IN: 'Acessar',
@@ -234,6 +240,12 @@ angular
       PUBLICATIONS_FIELD_VIEW: 'Visualização',
       LOGGED_USER_LABEL: 'Usuário:',
       APPREHENTICE_QUOTE: 'Aprendiz',
+      POINTS: 'Pontos:',
+      HOME: 'INICIO',
+      CONSULTING: 'CONSULTORIA',
+      PRODUCTS: 'PRODUTOS',
+      PARTNERS: 'PARCEIROS',
+      CONTACT: 'CONTATO',
     });
     $translateProvider.preferredLanguage(currentLanguage);
     $translateProvider.useSanitizeValueStrategy('escape');

@@ -48,13 +48,13 @@ angular
           console.log(res);
           if (res.total === 0) {
             publicationsService.create({
-              title: 'Education on Brazil',
+              title: 'Educação no Brasil',
               video: {
                 watch_url: 'https://www.youtube.com/watch?v=rLSmU6deuPQ',
                 embed_url: 'https://www.youtube.com/embed/rLSmU6deuPQ',
                 embed_fragment: '<iframe class="embed-responsive-item" width="560" height="315" ng-src="https://www.youtube.com/embed/rLSmU6deuPQ" frameborder="0" allowfullscreen></iframe>',
               },
-              description: 'Short history of education on Brazil',
+              description: 'Resumo da historia sobre educação no Brasil',
               created_at: Date.now(),
               updated_at: Date.now(),
             })
