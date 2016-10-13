@@ -1,4 +1,6 @@
 'use strict';
+const reviews = require('./reviews');
+const reviews = require('./reviews');
 const catalog = require('./catalog');
 const authentication = require('./authentication');
 const user = require('./user');
@@ -12,4 +14,6 @@ module.exports = function() {
   app.configure(authentication);
   app.configure(user);
   app.configure(catalog);
+  app.configure(reviews);
+  app.configure(reviews);
 };

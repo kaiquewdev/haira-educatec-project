@@ -5,4 +5,5 @@ angular
   })
   .controller('menu', function ($log, $feathers, $translate) {
     $log.debug('menu controller');
+    $scope.user = {};
   });
