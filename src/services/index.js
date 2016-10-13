@@ -1,6 +1,5 @@
 'use strict';
 const reviews = require('./reviews');
-const reviews = require('./reviews');
 const catalog = require('./catalog');
 const authentication = require('./authentication');
 const user = require('./user');
