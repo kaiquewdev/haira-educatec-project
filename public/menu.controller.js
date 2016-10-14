@@ -3,7 +3,6 @@ angular
   .run(function ($log) {
     $log.debug('menu controller running');
   })
-  .controller('menu', function ($log, $feathers, $translate) {
+  .controller('menu', function ($log, $feathers, $translate, $scope) {
     $log.debug('menu controller');
-    $scope.user = {};
   });
