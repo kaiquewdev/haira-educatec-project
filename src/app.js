@@ -13,15 +13,15 @@ const bodyParser = require('body-parser');
 const socketio = require('feathers-socketio');
 const middleware = require('./middleware');
 const services = require('./services');
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 
 const app = feathers();
 
-app.set('sequelize', new Sequelize('sequelize', '', '', {
-  dialect: 'sqlite',
-  storage: path.join(__dirname, 'db.sqlite'),
-  logging: false
-}));
+// app.set('sequelize', new Sequelize('sequelize', '', '', {
+//   dialect: 'sqlite',
+//   storage: path.join(__dirname, 'db.sqlite'),
+//   logging: false
+// }));
 
 app.configure(configuration(path.join(__dirname, '..')));
 
