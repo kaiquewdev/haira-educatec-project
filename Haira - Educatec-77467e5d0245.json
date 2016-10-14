@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "haira---educatec",
+  "private_key_id": "77467e5d0245048897ea40155b24718c40db3d6c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDAOsTBFRYamKh/\nbzkmvpKuwpsGRaLtf8+CPn01AC+ZHIa/Feq0IjqW2J46ZX05RGdyZnlm7UvD6I/q\nPIbGv+uGu7sCQbDt2AqE/la/USRQEo85msySjC1K58Ny4T02V0YtO2rD90GmPCmb\nWXSSxO/e7017t8KmeLjUBNV3mWKBHm5xngn+rvM6WUiM63DA8gGuuWYj8HhJRfki\ndW9vjP7jkSYiBAmKC1AnX1tomdNWFMzqEr2jvvax1MTTYjikpB+bYrYJ8ODhFHlS\nnxMQEg0ibIiY0zqkvbX3F+JmmbfO4j7/HCJxcEOPdyQTrWpoa54rnWviK7ywZchm\nM8gvt1HpAgMBAAECggEAAcKH+pyOzz+Gi2QhSdGE1kTB1pTcoQACjla0HsAZr3Ur\nZqR0uaF2l9rz1+UF+Hg/2jRF+END5k9Cwgo70aYAKgOd+q9PR14q+ny5npbHllQV\nK5nXNaBC6eSlTW/yd4TlB5T7rT+eQj9awilXf+B9sbTPKMrN5WhFiOtiaO3mkPgK\nSUp0VGSE4fNSdkGlHuZCbXNXPYaj5le3KVBtwL+ds8NVs/viagUYrMOQG74QnDU2\nOY/N2ReNtR9h/Lbza6J+LF6//q9B/dxl2difIJOCmzHwG/aEMDoq8SULvnygTQAn\nKw4hjMxYWlRpoHtnt0Gw/tVon492Ii5sPrG4pe4A4QKBgQDqxORYoz8HVBkons1K\nf1o0beACPWD8bDEFLinBIwpgrEo7RlvVSREz8I9b8lu9ojcc5eeSdHeVAexgNCcx\noPk8BFH0pWw/tVxilBmNyEhr4G9r2tZ/Qdhn8NQ/ikMmN6HV2l/1OF8LapRosPe6\n4utM9PCj3CkZO/xAHkHb7aIdXwKBgQDRnQygyE0+eO+8RRy1Yki6moxLozK3LXWX\nWt7aK3/doKXdftHY/OtOntFVF3LXSvtenpwPfuToOa6/CKTIeJx22TtEMaMPoHWm\n2nrdhBoxK5HjnHC4glEt5CLUjaxrWZ40kx0yzL0Z/U5FPm3r02hQ/VREMlj0rH6v\nDsk+U7mNtwKBgE1HlLcMvaGm8EUryP393+6kQHncRIGzB4vh/0KhSzg5XpIWfgI+\ndBg51qb4p3RL4oJzt3/BMN/u6yVb5Y7zozc7YNL8ZR6vj4Kvp53BUP2ZunOxbKwl\nO5wzbVqhI6t/4pjnsnChJsA2TDYOEu4E5lnFwzTdMvYohceBbkJ7/cJXAoGAOet4\netD+Lx4BuHcsaJ5g1FcyHxBYSi9gh9MPMx/D9DyYuGx7lcbFSnMuCqIxFHZeoRWY\nr9tzawvNUnIT/mT9bwW1j7FbikzfVZyXSLBhAGc2p7sploJD5jdcvHjtRLh9s69W\n6RuTwSOyRgXrH7fJ4l8tsq5q0Cj91Gd0iileY18CgYA7eIEGStq5K7YXkLuyR4z/\nkeFonp0lcc7Jpply4c8Bi3YRbY/h5hUjRd3ypMMx6YjDj0u3QIIuymLCesKq8CMr\n/wwpYZlouQQHKI2f0xyMG3j+Ts0aXyx1cG6mwjKZd8C3ehjllLIveyTbV0UrXJMR\nfB9b2KzVbK0OGtdZ87i0yg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "haira---educatec@appspot.gserviceaccount.com",
+  "client_id": "116520473233531811127",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/haira---educatec%40appspot.gserviceaccount.com"
+}
