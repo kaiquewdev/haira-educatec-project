@@ -25,7 +25,14 @@ app.set('sequelize', new Sequelize('sequelize', '', '', {
 
 app.configure(configuration(path.join(__dirname, '..')));
 
-app.use(compress())
+app
+  .use((req, res, next) => {
+    if (req.get('x-appengine-https') === 'on' && !req.get('x-forwarded-proto')) {
+      req.headers['x-forwarded-proto'] = 'https';
+    }
+    next();
+  })
+  .use(compress())
   .options('*', cors())
   .use(cors({ origin: true }))
   .use(favicon( path.join(app.get('public'), 'favicon.ico') ))
