@@ -26,8 +26,12 @@ angular
     $scope.getCurrentFragmentPreview = function () {
       return $scope.currentFragmentPreview;
     };
-    $scope.setCurrentFragmentPreview = function (fragment) {
-      $scope.currentFragmentPreview = $sce.trustAs('resourceUrl', fragment);
+    $scope.getCurrentTitlePreview = function () {
+      return $scope.currentTitlePreview;
+    };
+    $scope.setCurrentFragmentPreview = function (pub) {
+      $scope.currentTitlePreview = pub.title;
+      $scope.currentFragmentPreview = $sce.trustAs('resourceUrl', pub.video.embed_url);
     };
 
     publicationsService.on('created', function (res) {
