@@ -23,14 +23,19 @@ angular
     $scope.publications = [];
 
     $scope.currentFragmentPreview = '';
+    $scope.currentDescriptionPreview = '';
     $scope.getCurrentFragmentPreview = function () {
       return $scope.currentFragmentPreview;
     };
     $scope.getCurrentTitlePreview = function () {
       return $scope.currentTitlePreview;
     };
+    $scope.getCurrentDescriptionPreview = function () {
+      return $scope.currentDescriptionPreview;
+    };
     $scope.setCurrentFragmentPreview = function (pub) {
       $scope.currentTitlePreview = pub.title;
+      $scope.currentDescriptionPreview = pub.description;
       $scope.currentFragmentPreview = $sce.trustAs('resourceUrl', pub.video.embed_url);
     };
 
