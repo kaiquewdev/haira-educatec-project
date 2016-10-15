@@ -1,5 +1,4 @@
-FROM gcr.io/google_appengine/nodejs
-RUN /usr/local/bin/install_node '>= 0.12.0'
+FROM kaiquewdev/docker-nodejs-compiled
 ADD . /code
 WORKDIR /code
 RUN npm install --unsafe-perm || \
