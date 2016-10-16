@@ -3,5 +3,5 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-  - url: .*
-  script: main.py
+- url: .*
+  script: main.app
