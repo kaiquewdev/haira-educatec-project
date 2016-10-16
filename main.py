@@ -1,6 +1,6 @@
 '''Run the installation script'''
 import subprocess as sp
 
-if __name__ == '__main__':
+def app():
   sp.call(['npm', 'i'])
   sp.call(['npm', 'start'])
