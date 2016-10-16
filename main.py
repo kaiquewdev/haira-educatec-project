@@ -1,6 +1,12 @@
 '''Run the installation script'''
-import subprocess as sp
+from flask import Flask
+from flask import render_template
 
-def app():
-  sp.call(['npm', 'i'])
-  sp.call(['npm', 'start'])
+app = Flask(__name__)
+
+@app.route('/')
+def haira_educatec():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run()

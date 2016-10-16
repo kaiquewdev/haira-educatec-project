@@ -1,0 +1,63 @@
+<div class="panel panel-default" style="margin-top:1em;">
+  <div class="panel-heading">
+    {{'PUBLICATIONS' | translate}} ({{'LOGGED_USER_LABEL' | translate}} {{user.email}} - {{'POINTS' | translate}} {{user.card.score}})
+    <button style="margin-top:-.4em;" class="btn btn-sm btn-default pull-right" ng-click="changeLang()">{{'CHANGE_TO' | translate}}</button>
+  </div>
+  <div class="panel-body">
+    <p class="well text-center">
+      {{'PUBLICATIONS_DESCRIPTION' | translate}}
+    </p>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>{{'PUBLICATIONS_FIELD_TITLE' | translate}}</th>
+        <th>{{'PUBLICATIONS_FIELD_DESCRIPTION' | translate}}</th>
+        <th>{{'PUBLICATIONS_FIELD_PREVIEW' | translate}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="publication in publications">
+        <th scope="row">{{$index+1}}</th>
+        <th scope="row"><a href="{{publication.video.watch_url}}" target="_blank">{{publication.title}}</a></th>
+        <th scope="row">{{publication.description}}</th>
+        <th scope="row"><button type="button" class="btn btn-success btn" ng-click="setCurrentFragmentPreview(publication)" data-toggle="modal" data-target="#contentPreview">{{'PUBLICATIONS_FIELD_VIEW' | translate}}</button></th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div id="contentPreview" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{'PUBLICATIONS' | translate}}</h4>
+      </div>
+      <div class="modal-body">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe
+            class="embed-responsive-item"
+            width="560"
+            height="315"
+            ng-src="{{getCurrentFragmentPreview()}}"
+            frameborder="0"
+            allowfullscreen></iframe>
+        </div>
+        <div class="media">
+          <div class="media-body">
+            <h4 class="media-heading">{{getCurrentTitlePreview()}}</h4>
+            <p>
+              {{getCurrentDescriptionPreview()}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" ng-click="favoritePublication(getCurrentIdPreview())">{{'FAVORITE' | translate}}</button> -->
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{'CLOSE' | translate}}</button>
+      </div>
+    </div>
+  </div>
+</div>
