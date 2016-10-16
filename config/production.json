@@ -1,6 +1,7 @@
 {
   "host": "haira-educatec-project-app.feathersjs.com",
   "port": 80,
+  "nedb": "../data/",
   "mongodb": "DATABASE_URL",
   "public": "../public/",
   "auth": {
