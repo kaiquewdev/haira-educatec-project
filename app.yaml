@@ -1,2 +1,11 @@
-runtime: nodejs
-vm: true
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handle:
+- url: "/"
+  script: main.app
+
+libraries:
+- name: jinja2
+  version: 2.8
