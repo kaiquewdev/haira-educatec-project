@@ -1,0 +1,91 @@
+<div class="panel panel-default" style="margin-top:4em;" ng-controller="stash">
+  <div class="panel-heading">
+    {{'FIRST_TITLE' | translate}} <span ng-hide="!!!search.csl">({{search.csl}})</span>
+    <button style="margin-top:-.4em;" class="btn btn-sm btn-default pull-right" ng-click="changeLang()">{{'CHANGE_TO' | translate}}</button>
+  </div>
+  <div class="panel-body">
+    <label for="find-stash">{{'SUB_TITLE' | translate}}</label>
+    <div class="input-group col-lg-12">
+      <input type="text" class="form-control" ng-model="search.keyword" placeholder="{{'KEYWORD' | translate}}">
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="search.keyword='';preview.current='';search.cls='';search.pbs='';search.dev='';developerCounter=0;">{{'RESET' | translate}}</button>
+      </div>
+    </div>
+
+    <div class="btn-group btn-group-justified" role="group" style="margin-top:1em;">
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn"
+          ng-class="search.aspect==='most_rated' ? 'btn-success':'btn-default'"
+          ng-click="toggleAspect('most_rated')">
+          {{'MOST_RATED' | translate}}
+        </button>
+      </div>
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-default"
+          ng-class="search.aspect==='top_commented' ? 'btn-success':'btn-default'"
+          ng-click="toggleAspect('top_commented')">{{'TOP_COMMENTED' | translate}}</button>
+      </div>
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-default"
+          ng-class="search.aspect==='best_criticized' ? 'btn-success':'btn-default'"
+          ng-click="toggleAspect('best_criticized')">{{'BEST_CRITICISED' | translate}}</button>
+      </div>
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-default"
+          ng-class="search.aspect==='sentiment.score' ? 'btn-success':'btn-default'"
+          ng-click="toggleAspect('-score')">{{'SCORE' | translate}}</button>
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>{{'STASH_TITLE' | translate}}</th>
+        <th>{{'STASH_BADGES' | translate}}</th>
+        <th>{{'STASH_PUBLISHER' | translate}}</th>
+        <th>{{'STASH_DEVELOPER' | translate}}</th>
+        <th>{{'STASH_ACCESS_ABOVE' | translate}}</th>
+        <th>{{'STASH_EXTERNAL_RESOURCES' | translate}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-hide="!!!stash.title" ng-repeat="stash in stashes | filter:{title:search.keyword,meta_consoles:search.csl,meta_publisher:search.pbs,meta_developer:search.dev} | orderBy:search.aspect:search.reverse track by $id(stash)">
+        <th scope="row">{{$index + 1}}</th>
+        <td><a href="{{stash.reference}}" ng-click="showCurrentPreview(stash)" target="_blank">{{stash.title}}</a></td>
+        <td>
+          <span
+            ng-hide="!!!stash.meta_consoles.length"
+            style="margin-right:.5em;margin-bottom:.5em;cursor:pointer;"
+            class="badge"
+            ng-click="search.csl=console"
+            ng-repeat="console in stash.meta_consoles.split(', ') track by $index">
+            {{console}}
+          </span>
+        </td>
+        <td>
+          <span style="cursor:pointer;" class="badge" ng-click="search.pbs=stash.meta_publisher.slice(('Publisher ').length)">{{stash.meta_publisher.slice(('Publisher ').length)}}</span>
+        </td>
+        <td>
+          <span style="cursor:pointer;" class="badge" ng-click="filterDeveloper(stash.meta_developer.slice(('Developer ').length))">{{stash.meta_developer.slice(('Developer ').length)}}</span>
+        </td>
+        <td>
+          <button style="cursor:pointer;" type="button" class="btn btn-default" ng-click="grabReferenceContent(stash.reference)">{{'STASH_ACCESS_BELOW' | translate}}</button>
+        </td>
+        <td>
+          <!-- <a href="https://www.youtube.com/results?search_query=[Game] {{stash.title.split(' ').join('+')}}" target="_blank" class="btn btn-default">{{'STASH_EXTERNAL_RESOURCES' | translate}}</a> -->
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#videoPreviewListModal" ng-click="selectCurrent(stash)">{{'STASH_EXTERNAL_RESOURCES' | translate}}</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <video-preview-list-modal></video-preview-list-modal>
+</div>

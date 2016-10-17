@@ -1,0 +1,15 @@
+<div class="panel panel-default" style="margin-top:4em;" ng-controller="profile">
+  <div class="panel-heading">
+      {{'THIRD_TITLE' | translate}}
+      <button style="margin-top:-.4em;" class="btn btn-sm btn-default pull-right" ng-click="changeLang()">{{'CHANGE_TO' | translate}}</button>
+  </div>
+  <div class="panel-body">
+    <blockquote>
+      <p>
+        {{'UTILIZATION_QUOTE' | translate}}
+      </p>
+    </blockquote>
+
+    <div class="well well-sm text-center" style="margin-top:1.5em;">{{currentQuote() | translate}}</div>
+  </div>
+</div>
