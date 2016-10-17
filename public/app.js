@@ -187,7 +187,8 @@ angular
       PRODUCTS: 'PRODUCTS',
       PARTNERS: 'PARTNERS',
       CONTACT: 'CONTACT',
-      LOGOUT: 'LOGOUT'
+      LOGOUT: 'LOGOUT',
+      TRAIN: 'Train',
     });
     $translateProvider.translations('ptBr', {
       SIGN_IN: 'Acessar',
@@ -251,6 +252,7 @@ angular
       PARTNERS: 'PARCEIROS',
       CONTACT: 'CONTATO',
       LOGOUT: 'SAIR',
+      TRAIN: 'Treinar',
     });
     $translateProvider.preferredLanguage(currentLanguage);
     $translateProvider.useSanitizeValueStrategy('escape');

@@ -74,7 +74,9 @@ angular
 
     $scope.publications = [];
 
+    $scope.currentIdPreview = '';
     $scope.currentFragmentPreview = '';
+    $scope.currentTitlePreview = '';
     $scope.currentDescriptionPreview = '';
 
     // $scope.getCurrentTitlePreview = function () {
@@ -91,6 +93,13 @@ angular
     function isNotEmpty(actual) {
       return isString(actual) && actual.length > 0;
     }
+
+    observeOnScope($scope, 'currentIdPreview').subscribe(function (change) {
+      if (isNotEmpty(change.oldValue)) $scope.currentIdPreview = '';
+      if (isString(change.newValue)) {
+        $scope.currentIdPreview = change.newValue || '';
+      }
+    });
 
     observeOnScope($scope, 'currentFragmentPreview').subscribe(function (change) {
       if (isNotEmpty(change.oldValue)) $scope.currentFragmentPreview = '';
@@ -114,13 +123,25 @@ angular
     });
 
     $scope
-      .$createObservableFunction('setCurrentFragmentPreview')
+      .$createObservableFunction('train')
+      .map(function (data) {
+        $log.debug(data);
+        return data;
+      })
+      .subscribe(function (res) {
+        $log.debug('train set for: ', res);
+        return res;
+      });
+
+    $scope
+      .$createObservableFunction('setCurrentPreview')
       .map(function (data) {
         $log.debug(data);
         return data;
       })
       .subscribe(function (res) {
         $log.debug(res);
+        $scope.currentIdPreview = res._id;
         $scope.currentTitlePreview = res.title;
         $scope.currentDescriptionPreview = res.description;
         $scope.currentFragmentPreview = res.video.embed_url;

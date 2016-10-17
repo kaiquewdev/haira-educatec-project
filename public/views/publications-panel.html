@@ -22,7 +22,7 @@
         <th scope="row">{{$index+1}}</th>
         <th scope="row"><a href="{{publication.video.watch_url}}" target="_blank">{{publication.title}}</a></th>
         <th scope="row">{{publication.description}}</th>
-        <th scope="row"><button type="button" class="btn btn-success btn" ng-click="setCurrentFragmentPreview(publication)" data-toggle="modal" data-target="#contentPreview">{{'PUBLICATIONS_FIELD_VIEW' | translate}}</button></th>
+        <th scope="row"><button type="button" class="btn btn-success btn" ng-click="setCurrentPreview(publication)" data-toggle="modal" data-target="#contentPreview">{{'PUBLICATIONS_FIELD_VIEW' | translate}}</button></th>
       </tr>
     </tbody>
   </table>
@@ -56,6 +56,7 @@
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-default" ng-click="favoritePublication(getCurrentIdPreview())">{{'FAVORITE' | translate}}</button> -->
+        <button type="button" class="btn btn-primary" ng-click="train(currentIdPreview)">{{'TRAIN' | translate}}</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">{{'CLOSE' | translate}}</button>
       </div>
     </div>
