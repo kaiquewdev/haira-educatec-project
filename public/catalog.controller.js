@@ -76,20 +76,40 @@ angular
 
     $scope.currentFragmentPreview = '';
     $scope.currentDescriptionPreview = '';
-    $scope.getCurrentFragmentPreview = function () {
-      return $scope.currentFragmentPreview;
-    };
-    $scope.getCurrentTitlePreview = function () {
-      return $scope.currentTitlePreview;
-    };
-    $scope.getCurrentDescriptionPreview = function () {
-      return $scope.currentDescriptionPreview;
-    };
+
+    // $scope.getCurrentTitlePreview = function () {
+    //   return $scope.currentTitlePreview;
+    // };
+    // $scope.getCurrentDescriptionPreview = function () {
+    //   return $scope.currentDescriptionPreview;
+    // };
+
+    function isString(actual) {
+      return typeof(actual) === 'string';
+    }
+
+    function isNotEmpty(actual) {
+      return isString(actual) && actual.length > 0;
+    }
 
     observeOnScope($scope, 'currentFragmentPreview').subscribe(function (change) {
-      if (change.oldValue !== '') $scope.currentFragmentPreview = '';
-      if (typeof(change.newValue) === 'string') {
+      if (isNotEmpty(change.oldValue)) $scope.currentFragmentPreview = '';
+      if (isString(change.newValue)) {
         $scope.currentFragmentPreview = $sce.trustAs('resourceUrl', change.newValue || '');
+      }
+    });
+
+    observeOnScope($scope, 'currentTitlePreview').subscribe(function (change) {
+      if (isNotEmpty(change.oldValue)) $scope.currentTitlePreview = '';
+      if (isString(change.newValue)) {
+        $scope.currentTitlePreview = change.newValue || '';
+      }
+    });
+
+    observeOnScope($scope, 'currentDescriptionPreview').subscribe(function (change) {
+      if (isNotEmpty(change.oldValue)) $scope.currentDescriptionPreview = '';
+      if (isString(change.newValue)) {
+        $scope.currentDescriptionPreview = change.newValue || '';
       }
     });
 
@@ -101,7 +121,7 @@ angular
       })
       .subscribe(function (res) {
         $log.debug(res);
-        $scope.currrentTitlePreview = res.title;
+        $scope.currentTitlePreview = res.title;
         $scope.currentDescriptionPreview = res.description;
         $scope.currentFragmentPreview = res.video.embed_url;
         return res;
