@@ -63,7 +63,7 @@ angular
     .then(console.log.bind(console))
     .catch(console.log.bind(console));
   })
-  .controller('catalog', function ($log, $feathers, $scope, $sce, $translate, $window, rx, $rootScope) {
+  .controller('catalog', function ($log, $feathers, $scope, $sce, $translate, $window, rx, $rootScope, observeOnScope) {
     $log.debug('catalog controller');
     var usersService = $feathers.service('users');
     var publicationsService = $feathers.service('catalogs');
@@ -85,11 +85,27 @@ angular
     $scope.getCurrentDescriptionPreview = function () {
       return $scope.currentDescriptionPreview;
     };
-    $scope.setCurrentFragmentPreview = function (pub) {
-      $scope.currentTitlePreview = pub.title;
-      $scope.currentDescriptionPreview = pub.description;
-      $scope.currentFragmentPreview = $sce.trustAs('resourceUrl', pub.video.embed_url);
-    };
+
+    observeOnScope($scope, 'currentFragmentPreview').subscribe(function (change) {
+      if (change.oldValue !== '') $scope.currentFragmentPreview = '';
+      if (typeof(change.newValue) === 'string') {
+        $scope.currentFragmentPreview = $sce.trustAs('resourceUrl', change.newValue || '');
+      }
+    });
+
+    $scope
+      .$createObservableFunction('setCurrentFragmentPreview')
+      .map(function (data) {
+        $log.debug(data);
+        return data;
+      })
+      .subscribe(function (res) {
+        $log.debug(res);
+        $scope.currrentTitlePreview = res.title;
+        $scope.currentDescriptionPreview = res.description;
+        $scope.currentFragmentPreview = res.video.embed_url;
+        return res;
+      });
 
     publicationsService.on('created', function (res) {
       $scope.publications.push(res);
