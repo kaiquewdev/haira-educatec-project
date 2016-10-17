@@ -1,4 +1,5 @@
 'use strict';
+const training = require('./training');
 // const v1stash = require('./v1stash');
 const stash = require('./stash');
 const reviews = require('./reviews');
@@ -14,4 +15,5 @@ module.exports = function() {
   app.configure(reviews);
   app.configure(stash);
   // app.configure(v1stash);
+  app.configure(training);
 };
