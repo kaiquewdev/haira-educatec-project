@@ -63,14 +63,14 @@ angular
     .then(console.log.bind(console))
     .catch(console.log.bind(console));
   })
-  .controller('catalog', function ($log, $feathers, $scope, $sce, $translate, $window, rx) {
+  .controller('catalog', function ($log, $feathers, $scope, $sce, $translate, $window, rx, $rootScope) {
     $log.debug('catalog controller');
     var usersService = $feathers.service('users');
     var publicationsService = $feathers.service('catalogs');
     usersService.timeout = 30000;
 
     $scope.user = { email: '', password: '' };
-    $scope.userLogged = false;
+    $scope.userLogged = currentUserLogged;
 
     $scope.publications = [];
 
@@ -156,7 +156,9 @@ angular
       .map(function (credentials) { return credentials; })
       .flatMapLatest(authenticateUser)
       .subscribe(function (result) {
-        $scope.userLogged = true;
+        currentUserLogged = true;
+        $scope.userLogged = currentUserLogged;
+        $rootScope.$broadcast('userLogged', { logged: true });
         $scope.user.card = window.score.scorecard();
         $log.debug(result);
         $scope.findPublicationObserver();

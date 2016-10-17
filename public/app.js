@@ -34,6 +34,7 @@ var score = window.score = new Score({
     }
   ]
 });
+var currentUserLogged = window.currentUserLogged = false;
 
 //jQuery is required to run this code
 $( document ).ready(function() {
@@ -119,8 +120,8 @@ angular
     $feathersProvider,
     $translateProvider
   ) {
-    $feathersProvider.setEndpoint('https://haira-educatec.herokuapp.com/');
-    // $feathersProvider.setEndpoint('http://localhost:8080/');
+    //$feathersProvider.setEndpoint('https://haira-educatec.herokuapp.com/');
+    $feathersProvider.setEndpoint('http://localhost:8080/');
     // $feathersProvider.setSocketOpts({
     //   path: '/socket.io/'
     // });
@@ -186,6 +187,7 @@ angular
       PRODUCTS: 'PRODUCTS',
       PARTNERS: 'PARTNERS',
       CONTACT: 'CONTACT',
+      LOGOUT: 'LOGOUT'
     });
     $translateProvider.translations('ptBr', {
       SIGN_IN: 'Acessar',
@@ -248,6 +250,7 @@ angular
       PRODUCTS: 'PRODUTOS',
       PARTNERS: 'PARCEIROS',
       CONTACT: 'CONTATO',
+      LOGOUT: 'SAIR',
     });
     $translateProvider.preferredLanguage(currentLanguage);
     $translateProvider.useSanitizeValueStrategy('escape');
