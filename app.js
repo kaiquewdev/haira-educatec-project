@@ -120,8 +120,8 @@ angular
     $feathersProvider,
     $translateProvider
   ) {
-    //$feathersProvider.setEndpoint('https://haira-educatec.herokuapp.com/');
-    $feathersProvider.setEndpoint('http://localhost:8080/');
+    $feathersProvider.setEndpoint('https://haira-educatec.herokuapp.com/');
+    // $feathersProvider.setEndpoint('http://localhost:8080/');
     // $feathersProvider.setSocketOpts({
     //   path: '/socket.io/'
     // });
